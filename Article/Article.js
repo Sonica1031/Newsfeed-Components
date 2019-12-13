@@ -85,6 +85,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Durfinsmirf',
+    date: 'Dec 11, 2019',
+    firstParagraph: `Insert random text here`,
+    secondParagraph: `#toomuch`,
+    thirdParagraph: `Chocolate Sauce`
   }
 ];
 
@@ -112,3 +119,39 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+let articleDOM = document.querySelector('.articles');
+data.forEach((content) => {articleDOM.appendChild(art(content.title, content.date, content.firstParagraph, content.secondParagraph, content.thirdParagraph))});
+function art(title, date, firstParagraph, secondParagraph, thirdParagraph){
+let article = document.createElement('div');
+let h2 = document.createElement('h2');
+let p = document.createElement('p');
+let p1 = document.createElement('p');
+let p2 = document.createElement('p');
+let p3 = document.createElement('p');
+let span = document.createElement('span');
+
+article.classList.add('article');
+article.classList.add('article-open')
+p.classList.add('date')
+span.classList.add('expandButton')
+article.appendChild(h2);
+article.appendChild(p);
+article.appendChild(p1);
+article.appendChild(p2);
+article.appendChild(p3);
+article.appendChild(span);
+
+h2.textContent = title;
+p.textContent = date;
+p1.textContent = firstParagraph;
+p2.textContent = secondParagraph;
+p3.textContent = thirdParagraph;
+
+span.addEventListener('click', (e) =>{
+  span.classList.toggle('expandButton');
+  article.classList.toggle('article-open');
+
+})
+
+return article;
+}
