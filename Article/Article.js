@@ -131,7 +131,6 @@ let p3 = document.createElement('p');
 let span = document.createElement('span');
 
 article.classList.add('article');
-article.classList.add('article-open')
 p.classList.add('date')
 span.classList.add('expandButton')
 article.appendChild(h2);
@@ -146,12 +145,13 @@ p.textContent = date;
 p1.textContent = firstParagraph;
 p2.textContent = secondParagraph;
 p3.textContent = thirdParagraph;
+span.textContent = 'x';
 
 span.addEventListener('click', (e) =>{
-  span.classList.toggle('expandButton');
   article.classList.toggle('article-open');
+return span;
+});
 
-})
 
 return article;
-}
+};
